@@ -1,36 +1,25 @@
-# discordpy-startup
+# Discord 会議要約Bot
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+## 概要
 
-- Herokuでdiscord.pyを始めるテンプレートです。
-- Use Template からご利用ください。
-- 使い方はこちら： [Discord Bot 最速チュートリアル【Python&Heroku&GitHub】 - Qiita](https://qiita.com/1ntegrale9/items/aa4b373e8895273875a8)
+Discordチャンネルの直近メッセージをまとめてAIで自動要約するBotです。  
+コマンド `/summarize` で使いたい件数分だけ過去発言をまとめてくれます。  
+会議の議事録やタスク整理に便利。
 
-## 各種ファイル情報
+---
 
-### discordbot.py
-PythonによるDiscordBotのアプリケーションファイルです。
+## できること
 
-### requirements.txt
-使用しているPythonのライブラリ情報の設定ファイルです。
+- `/summarize [件数]` で、指定件数（10～200）の最新発言をAI要約（デフォルト50件）
+- 要約結果はEmbed形式で表示
+- 発言がなければ「メッセージがありません」と返答
+- 要約エラー時も内容をそのまま返してくれる
 
-### Procfile
-Herokuでのプロセス実行コマンドの設定ファイルです。
+---
 
-### runtime.txt
-Herokuでの実行環境の設定ファイルです。
+## 使い方
 
-### app.json
-Herokuデプロイボタンの設定ファイルです。
+下記の環境変数を.envファイルに記入
 
-### .github/workflows/flake8.yaml
-GitHub Actions による自動構文チェックの設定ファイルです。
-
-### .gitignore
-Git管理が不要なファイル/ディレクトリの設定ファイルです。
-
-### LICENSE
-このリポジトリのコードの権利情報です。MITライセンスの範囲でご自由にご利用ください。
-
-### README.md
-このドキュメントです。
+DISCORD_BOT_TOKEN=あなたのBotトークン
+OPENAI_API_KEY=あなたのOpenAI APIキー
